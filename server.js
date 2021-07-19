@@ -1,7 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const passport = require("passport");
 require("dotenv").config();
 const app = express();
+
+//Body parser middleware
+//(Nos permite acceder req.body.loquesea)
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //Importing routes
 const users = require("./routes/api/users");
@@ -15,7 +22,11 @@ mongoose
   .then(() => console.log("Database Connected"))
   .catch((e) => console.log("Error db:", e));
 
-app.get("/", (req, res) => res.send("Hello"));
+//Passport middleware
+app.use(passport.initialize());
+
+//Passport Config
+require("./config/passport")(passport);
 
 //Using routes
 app.use("/api/users", users);
