@@ -17,7 +17,7 @@ function PostItem(props) {
   const postSelector = useSelector((state) => state.post);
 
   //2. Destructuramos lo que recibimos como props
-  const { post } = props;
+  const { post, showActions } = props;
 
   /////////////////////////////////////////////////////////////////
   //SEGUNDO: DISPARO DE ACTIONS//////////////////////////////////
@@ -85,7 +85,8 @@ function PostItem(props) {
         </div>
         <div className="col-md-10">
           <p className="lead">{post.text}</p>
-          <button
+          {showActions ? (<span>
+            <button
             onClick={onLikeClick.bind(this, post._id)}
             type="button"
             className="btn btn-light mr-1"
@@ -114,10 +115,15 @@ function PostItem(props) {
               <i className="fas fa-times" />
             </button>
           ) : null}
+          </span>) : null}
         </div>
       </div>
     </div>
   );
+}
+
+PostItem.defaultProps = {
+  showActions: true
 }
 
 PostItem.propTypes = {

@@ -1,4 +1,4 @@
-import { GET_ERRORS } from "../actions/types";
+import { GET_ERRORS, CLEAR_ERRORS } from "../actions/types";
 
 const initialState = {};
 
@@ -11,6 +11,10 @@ const errorReducer = (state = initialState, action) => {
     state = { ...state, errors: action.payload };
     //Al final devolvemos el state ya actualizado
     console.log(state);
+  }
+  if (action.type === CLEAR_ERRORS) {
+    state = {...state, errors: {}}
+    console.log(state)
   }
   return state;
 };

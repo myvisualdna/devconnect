@@ -7,10 +7,12 @@ import {
   POST_LOADING,
   DELETE_POST,
   GET_POST,
+  CLEAR_ERRORS
 } from "./types";
 
 // Add Post
 export const addPost = (postData) => (dispatch) => {
+  dispatch(clearErrors())
   axios
     .post("/api/posts", postData)
     .then((res) =>
@@ -48,10 +50,10 @@ export const getPosts = () => (dispatch) => {
   console.log("get posts");
 };
 
-// Get Post
-export const getPost = (id) => (dispatch) => {
+// Get Posts by ID for the single post display
+export const getPost = (id) => async (dispatch) => {
   dispatch(setPostLoading());
-  axios
+  await axios
     .get(`/api/posts/${id}`)
     .then((res) =>
       dispatch({
@@ -61,12 +63,13 @@ export const getPost = (id) => (dispatch) => {
     )
     .catch((err) =>
       dispatch({
-        type: GET_POST,
+        type: GET_POSTS,
         payload: null,
       })
     );
-  console.log("get post");
+  console.log("get single post");
 };
+
 
 // Delete Post
 export const deletePost = (id) => (dispatch) => {
@@ -98,7 +101,7 @@ export const addLike = (id) => (dispatch) => {
         payload: err.response.data,
       })
     );
-  console.log("delete post");
+  console.log("add like");
 };
 
 // Remove Like
@@ -112,12 +115,58 @@ export const removeLike = (id) => (dispatch) => {
         payload: err.response.data,
       })
     );
-  console.log("delete post");
+  console.log("remove like");
+};
+
+// Add comment
+export const addComment = (postId, commentData) => (dispatch) => {
+  dispatch(clearErrors())
+  axios
+    .post(`/api/posts/comment/${postId}`, commentData)
+    .then((res) =>
+      dispatch({
+        type: GET_POST,
+        payload: res.data,
+      })
+    )
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    );
+  console.log("add comment");
+};
+
+// Delete comment
+export const deleteComment = (postId, commentId) => (dispatch) => {
+  axios
+    .delete(`/api/posts/comment/${postId}/${commentId}`)
+    .then((res) =>
+      dispatch({
+        type: GET_POST,
+        payload: res.data,
+      })
+    )
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    );
+  console.log("delete comment");
 };
 
 //Set loading state
 export const setPostLoading = () => {
   return {
     type: POST_LOADING,
+  };
+};
+
+//Clear Errors
+export const clearErrors = () => {
+  return {
+    type: CLEAR_ERRORS,
   };
 };

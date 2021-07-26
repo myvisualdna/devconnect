@@ -23,6 +23,7 @@ import AddEducation from "./components/add-credentials/addEducation";
 import Profiles from "./components/profiles/profiles";
 import Profile from "./components/profile/profile";
 import Posts from './components/posts/posts'
+import Post from './components/post/post'
 
 //LOGIN - JWT TOKEN
 //Verificamos que el token este guardado en el local storage
@@ -91,6 +92,12 @@ function App() {
             <PrivateRoute
               exact path="/feed"
               component={Posts}
+            />
+          </Switch>
+          <Switch>
+            <PrivateRoute
+              exact path="/post/:id"
+              component={Post}
             />
           </Switch>
         </div>
