@@ -6,6 +6,7 @@ import TextAreaFieldGroup from "../common/textAreaFieldGroup";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 import { addEducation } from "../../redux/actions/profileActions";
+import "../../styles/editStyle.scss";
 
 function AddEducation(props) {
   //1. Definimos los state de cada input del formulario
@@ -152,8 +153,8 @@ function AddEducation(props) {
             <Link to="/dashboard" className="btn btn-light">
               Go Back
             </Link>
-            <h1 className="display-4 text-center">Add Education</h1>
-            <p className="lead text-center">
+            <h1 className="edit-profile-title">Add Education</h1>
+            <p className="edit-profile-subtitle">
               Add any school, bootcamp, etc that you have attended
             </p>
             <small className="d-block pb-3">* required fields</small>
@@ -179,7 +180,7 @@ function AddEducation(props) {
                 onChange={onChangeFieldofstudy}
                 error={fieldofstudyError}
               />
-              <h6>From Date</h6>
+              <h4 className="small-label">From Date</h4>
               <TextFieldGroup
                 type="date"
                 name="from"
@@ -187,7 +188,7 @@ function AddEducation(props) {
                 onChange={onChangeFrom}
                 error={fromError}
               />
-              <h6>To Date</h6>
+              <h4 className="small-label">To Date</h4>
               <TextFieldGroup
                 type="date"
                 name="to"
@@ -220,8 +221,9 @@ function AddEducation(props) {
               />
               <input
                 type="submit"
-                value="submit"
-                className="btn btn-info btn-block mt-4"
+                value="Submit"
+                className="signup-button"
+                style={{ marginTop: "24px" }}
               />
             </form>
           </div>

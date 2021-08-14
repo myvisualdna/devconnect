@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import ProfileActions from "./profileActions";
 import Experience from "./experience";
 import Education from "./education";
+import "../../styles/dashboard.scss";
 
 function Dashboard() {
   //Redux Get Profile Process
@@ -55,9 +56,12 @@ function Dashboard() {
     if (Object.keys(profileSelector.profile).length > 0) {
       dashboardcontent = (
         <div>
-          <p className="lead text-muted">
+          <p className="dashboard-subtitle">
             Welcome{" "}
-            <Link to={`/profile/${profileSelector.profile.handle}`}>
+            <Link
+              to={`/profile/${profileSelector.profile.handle}`}
+              className="dashboard-link"
+            >
               {authSelector.user.name}
             </Link>
           </p>
@@ -69,7 +73,7 @@ function Dashboard() {
           <Experience experience={profileSelector.profile.experience} />
           <Education education={profileSelector.profile.education} />
           <div style={{ marginBottom: "60px" }} />
-          <button onClick={onDeleteClick} className="btn btn-danger">
+          <button onClick={onDeleteClick} className="delete-button">
             Delete My account
           </button>
         </div>
@@ -78,12 +82,12 @@ function Dashboard() {
       //User esta logado pero no tiene profile
       dashboardcontent = (
         <div>
-          <p className="lead text-muted">Welcome {authSelector.user.name}</p>
-          <p>
-            You have note yet setup a profile, please add some info about
+          <p className="dashboard-subtitle">Welcome {authSelector.user.name}</p>
+          <p className="no-profile-text">
+            You have not yet setup a profile, please add some info about
             youtself.
           </p>
-          <Link to="/create-profile" className="btn btn-lg btn-info">
+          <Link to="/create-profile" className="signup-button" style={{marginTop: '32px'}}>
             Create Profile
           </Link>
         </div>
@@ -101,11 +105,11 @@ function Dashboard() {
   }, []);
 
   return (
-    <div className="dashboard">
+    <div className="dashboard" style={{ marginTop: "32px" }}>
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <h1 className="fs-1">Dashboard</h1>
+            <h1 className="dashboard-title">Dashboard</h1>
             {dashboardcontent}
           </div>
         </div>

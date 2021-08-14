@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Moment from "react-moment";
 import { deleteExperience } from "../../redux/actions/profileActions";
 import { useHistory } from "react-router-dom";
+import "../../styles/experienceEducation.scss";
 
 function Experience(props) {
   //1. Definimos el Profile selector
@@ -37,9 +38,9 @@ function Experience(props) {
     //Entonces loopeamos
     experience = props.experience.map((exp) => (
       <tr ket={exp._id}>
-        <td>{exp.company}</td>
-        <td>{exp.title}</td>
-        <td>
+        <td className="table-items">{exp.company}</td>
+        <td className="table-items">{exp.title}</td>
+        <td className="table-items">
           <Moment format="YYYY/MM/DD">{exp.from}</Moment> -
           {exp.to === null ? (
             " Now"
@@ -50,7 +51,7 @@ function Experience(props) {
         <td>
           <button
             onClick={() => onClickDelete(exp._id)}
-            className="btn btn-danger"
+            className="delete-button"
           >
             Delete
           </button>
@@ -62,14 +63,14 @@ function Experience(props) {
   }
 
   return (
-    <div>
-      <h4 className="mb-4">Experience Credentials</h4>
+    <div style={{ marginTop: "32px" }}>
+      <h4 className="experience-title">Experience Credentials</h4>
       <table className="table">
         <thead>
           <tr>
-            <th>Company</th>
-            <th>Title</th>
-            <th>Years</th>
+            <th className="header-title-style">Company</th>
+            <th className="header-title-style">Title</th>
+            <th className="header-title-style">Years</th>
             <th />
           </tr>
           {experience}

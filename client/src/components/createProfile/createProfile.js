@@ -7,6 +7,7 @@ import InputGroup from "../common/inputGroup";
 import SelectListGroup from "../common/selectListGroup";
 import { createTheProfile } from "../../redux/actions/profileActions";
 import { useHistory } from "react-router-dom";
+import "../../styles/editStyle.scss";
 
 function CreateProfile(props) {
   //Aqui vamos a crear la form para completar el profile
@@ -269,12 +270,12 @@ function CreateProfile(props) {
   ];
 
   return (
-    <div className="create-profile">
+    <div className="create-profile" style={{ marginTop: "24px" }}>
       <div className="container">
         <div className="row">
           <div className="col-md-8 m-auto">
-            <h1 className="display-4 text-center">Create Your Profile</h1>
-            <p className="lead text-center">
+            <h1 className="edit-profile-title">Create Your Profile</h1>
+            <p className="edit-profile-subtitle">
               Let's get some information to make your profile stand out
             </p>
             <small className="d-block pb-3">* = required fields</small>
@@ -348,19 +349,16 @@ function CreateProfile(props) {
               <div className="mb-3">
                 <button
                   type="button"
-                  className="btn btn-light"
+                  className="log-button"
                   onClick={toggleSocial}
+                  style={{ marginTop: "16px", marginRight: "24px" }}
                 >
                   Add Social
                 </button>
                 <span className="text-muted">Optional</span>
               </div>
               {socialInputs}
-              <input
-                type="submit"
-                value="Submit"
-                className="btn btn-info btn-block mt-4"
-              />
+              <input type="submit" value="Submit" className="signup-button" />
             </form>
           </div>
         </div>

@@ -12,6 +12,7 @@ import {
 } from "../../redux/actions/profileActions";
 import isEmpty from "../../validation/is-empty";
 import { useHistory } from "react-router-dom";
+import "../../styles/editStyle.scss";
 
 ///ESTE ARCHIVO USA CASI LA MISMA ESTRUCTURA Y COMPONENTES QUE EL ARCHIVO "createProfile"
 
@@ -303,14 +304,14 @@ function EditProfile(props) {
   ];
 
   return (
-    <div className="create-profile">
+    <div className="create-profile" style={{ marginTop: "24px" }}>
       <div className="container">
         <div className="row">
           <div className="col-md-8 m-auto">
             <Link to="/dashboard" className="btn btn-light">
               Go Back
             </Link>
-            <h1 className="display-4 text-center">Edit Profile</h1>
+            <h1 className="edit-profile-title">Edit Profile</h1>
             <small className="d-block pb-3">* = required fields</small>
             <form onSubmit={onSubmit}>
               <TextFieldGroup
@@ -382,19 +383,16 @@ function EditProfile(props) {
               <div className="mb-3">
                 <button
                   type="button"
-                  className="btn btn-light"
+                  className="log-button"
                   onClick={toggleSocial}
+                  style={{ marginRight: "24px" }}
                 >
                   Add Social
                 </button>
                 <span className="text-muted">Optional</span>
               </div>
               {socialInputs}
-              <input
-                type="submit"
-                value="Submit"
-                className="btn btn-info btn-block mt-4"
-              />
+              <input type="submit" value="Submit" className="signup-button" />
             </form>
           </div>
         </div>

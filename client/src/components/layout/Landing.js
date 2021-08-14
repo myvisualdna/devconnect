@@ -24,31 +24,32 @@ function Landing() {
   return (
     <div>
       <div className="landing">
-        <div className="dark-overlay landing-inner text-light">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4">Developer Connector</h1>
-                <p className="lead">
-                  Create a developer profile/portfolio, share posts and get help
-                  from other developers
-                </p>
-                <hr />
-
-                <div className="buttonsContainer">
-                  <Link className="btn_Style" to="/register">
-                    <button type="button" class="btn btn-primary">
-                      SignUp
-                    </button>
-                  </Link>
-
-                  <Link className="btn_Style" to="/login">
-                    <button type="button" class="btn btn-light">
-                      Login
-                    </button>
-                  </Link>
-                </div>
+        <div className="dark-overlay">
+          <div className="main-container">
+            <div className="column-container">
+              <div className="title-style">
+                <h1>Dev-Social</h1>
               </div>
+              <div className="subtitle-style">
+                <h4>
+                  {" "}
+                  Create your developer profile. Share posts and get in contact
+                  with other developers.
+                </h4>
+              </div>
+            </div>
+            <div className='buttons-container'>
+              <Link className="btn_Style" to="/register">
+                <button type="button" className="signup-button">
+                  Register
+                </button>
+              </Link>
+
+              <Link className="btn_Style" to="/login">
+                <button type="button" className="log-button">
+                  Login
+                </button>
+              </Link>
             </div>
           </div>
         </div>

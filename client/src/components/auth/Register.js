@@ -124,16 +124,14 @@ function Register() {
   }, []);
 
   return (
-    <div>
-      <div className="register">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Sign Up</h1>
-              <p className="lead text-center">
-                Create your DevConnector account
-              </p>
-              <form onSubmit={onSubmit} action="create-profile.html">
+    <div className="login-container">
+      <div className="row">
+        <div className="col-md-6">
+          <div className="left-container">
+            <div className="login">
+              <h1 className="title-style">Register</h1>
+              <p className="sub-title">Create your Dev-Connect Account</p>
+              <form onSubmit={onSubmit} action="dashboard.html">
                 <TextFieldGroup
                   placeholder="Name"
                   name="name"
@@ -167,10 +165,14 @@ function Register() {
                   onChange={onChangePasswordTwo}
                   error={passwordTwoError}
                 />
-                <input type="submit" className="btn btn-info btn-block mt-4" />
+
+                <input type="submit" className="login-button" />
               </form>
             </div>
           </div>
+        </div>
+        <div className="col-md-6">
+          <div className="right-container"></div>
         </div>
       </div>
     </div>

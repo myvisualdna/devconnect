@@ -18,7 +18,8 @@ function CommentItem() {
   const dispatch = useDispatch();
 
   //2. Definimos la accion que queremos que dispatch dispare (traemos la action de hacer eliminar comentario desde redux). Esta accion se va a disparar en el item 3
-  const deleteCommentAction = (postId, commentId) => dispatch(deleteComment(postId, commentId));
+  const deleteCommentAction = (postId, commentId) =>
+    dispatch(deleteComment(postId, commentId));
 
   //3. Una vez definida la accion que elimina el comentario en el state de redux, la incluimos dentro de un metodo. Cuando llamamos este metodo, se disparara la accion de consulta contenida dentro.
   const deleteCommentMethod = (postId, commentId) => {
@@ -28,7 +29,7 @@ function CommentItem() {
 
   //Definimos el onDelete del comment
   const onDeleteClick = (postId, commentId) => {
-      deleteCommentMethod(postId, commentId)
+    deleteCommentMethod(postId, commentId);
   };
   return (
     <div className="card card-body mb-3">

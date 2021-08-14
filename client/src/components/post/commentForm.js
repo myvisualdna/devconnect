@@ -23,8 +23,8 @@ function CommentForm(props) {
 
   //Definimos los errores en caso que la forma este vacia
   let errorsFetched;
-  if(errorSelector.errors) {
-    errorsFetched = errorSelector.errors.text
+  if (errorSelector.errors) {
+    errorsFetched = errorSelector.errors.text;
   }
 
   /////////////////////////////////////////////////////////////////
@@ -66,25 +66,53 @@ function CommentForm(props) {
 
   return (
     <div className="post-form mb-3">
-      <div className="card card-info">
-        <div className="card-header bg-info text-white">Make a comment...</div>
-        <div className="card-body">
-          <form onSubmit={onSubmitPost}>
-            <div className="form-group">
-              <TextAreaFieldGroup
-                placeholder="Reply to Post"
-                name="text"
-                value={text}
-                onChange={onChangePost}
-                error={errorsFetched}
-              />
-            </div>
-            <button type="submit" className="btn btn-dark">
-              Submit
-            </button>
-          </form>
+      <section class="card" style={{ marginBottom: "16px", marginTop: "16px" }}>
+        <div class="card-header" style={{ backgroundColor: "#f0f0f0" }}>
+          <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+            <li class="nav-item-post">
+              <a
+                class="nav-link active"
+                id="posts-tab"
+                data-toggle="tab"
+                href="#posts"
+                role="tab"
+                aria-controls="posts"
+                aria-selected="true"
+              >
+                Make a Post
+              </a>
+            </li>
+          </ul>
         </div>
-      </div>
+        <div class="card-body">
+          <div class="tab-content" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="posts"
+              role="tabpanel"
+              aria-labelledby="posts-tab"
+            >
+              <form onSubmit={onSubmitPost}>
+                <div className="post-textarea">
+                  <TextAreaFieldGroup
+                    placeholder="Reply to Post"
+                    name="text"
+                    value={text}
+                    onChange={onChangePost}
+                    error={errorsFetched}
+                    className="post-textarea"
+                  />
+                </div>
+                <div className="send-post-container">
+                  <button type="submit" class="signup-button">
+                    Send
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

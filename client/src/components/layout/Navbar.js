@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { logoutUser } from "../../redux/actions/authActions";
 import { clearCurrentProfile } from "../../redux/actions/profileActions";
 import "../../styles/mainStyle.scss";
+import "../../styles/navbar.scss";
 
 function Navbar() {
   //Redux LOGOUT Action
@@ -47,17 +48,17 @@ function Navbar() {
   const authLinks = (
     <ul className="navbar-nav ml-auto">
       <li className="nav-item">
-        <Link className="nav-link" to="/feed">
+        <Link className="navbar-item" to="/feed">
           Post Feed
         </Link>
       </li>
       <li>
-        <Link className="nav-link" to="/register">
+        <Link className="navbar-item" to="/register">
           Sign Up
         </Link>
       </li>
       <li className="nav-item">
-        <a href="" onClick={onLogoutClick} className="nav-link">
+        <a href="" onClick={onLogoutClick} className="navbar-item">
           <img
             className="rounded-circle"
             src={loginSelector.user.avatar}
@@ -75,17 +76,17 @@ function Navbar() {
   const guestLinks = (
     <ul className="navbar-nav ml-auto">
       <li>
-        <Link className="nav-link" to="/dashboard">
+        <Link className="navbar-item" to="/dashboard">
           Dashboard
         </Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link" to="/register">
+        <Link className="navbar-item" to="/register">
           Sign Up
         </Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link" to="/login">
+        <Link className="navbar-item" to="/login">
           Login
         </Link>
       </li>
@@ -114,12 +115,12 @@ function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <Link className="navbar-brand" to="/">
-              DevSocial
+            <Link className="nav-logo" to="/">
+              Dev-Social
             </Link>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to="/profiles">
+                <Link className="navbar-item" to="/profiles">
                   Developers
                 </Link>
               </li>

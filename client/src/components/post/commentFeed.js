@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import { deleteComment } from "../../redux/actions/postActions";
+import '../../styles/postItem.scss'
 
 function CommentFeed(props) {
   //Definimos los selector que vamos a necesitar
@@ -37,7 +38,10 @@ function CommentFeed(props) {
   let commentsToShow;
   if (props.comments) {
     commentsToShow = comments.map((comment) => (
-      <div className="card card-body mb-3">
+      <div
+        className="card card-body mb-3"
+        style={{ height: "225px", marginTop: "32px", padding: "24px" }}
+      >
         <div className="row">
           <div className="col-md-2">
             <a href="profile.html">
@@ -51,7 +55,7 @@ function CommentFeed(props) {
             <p className="text-center">{comment.name}</p>
           </div>
           <div className="col-md-10">
-            <p className="lead">{comment.text}</p>
+            <p className="post-text">{comment.text}</p>
             <p>
               {postSelector.post.user === authSelector.user.id ? (
                 <button

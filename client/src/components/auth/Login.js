@@ -4,6 +4,7 @@ import classnames from "classnames";
 import { loginUser } from "../../redux/actions/authActions";
 import { useHistory } from "react-router-dom";
 import TextFieldGroup from "../common/textFieldGroup";
+import "../../styles/login.scss";
 
 function Login() {
   //1. Creamos los states que guardaran lo introducido en los inputs de email y password
@@ -34,7 +35,8 @@ function Login() {
   const dispatch = useDispatch();
 
   //2. Definimos la accion que queremos que dispatch dispare (traemos la action de registro desde redux). Esta accion se va a disparar el me item 3
-  const loginUserAction = (loggedUser, history) => dispatch(loginUser(loggedUser, history));
+  const loginUserAction = (loggedUser, history) =>
+    dispatch(loginUser(loggedUser, history));
 
   //3. Una vez definida la accion que registra en el state de redux toda la info incluida en los inputs, la incluimos dentro de un metodo. Cuando llamamos este metodo, se disparara la accion de consulta contenida dentro.
   const loginUserMethod = (loggedUser, history) => {
@@ -82,53 +84,40 @@ function Login() {
   }, []);
 
   return (
-    <div className="login">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-8 m-auto">
-            <h1 className="display-4 text-center">Log In</h1>
-            <p className="lead text-center">
-              Sign in to your DevConnector account
-            </p>
-            <form onSubmit={onSubmit} action="dashboard.html">
-              <TextFieldGroup
-                placeholder="Email Address"
-                name="email"
-                type="email"
-                value={email}
-                onChange={onChangeEmail}
-                error={emailError}
-              />
-              <TextFieldGroup
-                placeholder="Password"
-                name="password"
-                type="password"
-                value={password}
-                onChange={onChangePassword}
-                error={passwordError}
-              />
-              {/* 
-              <div className="form-group">
-                <input
-                  type="email"
-                  className={classnames("form-control form-control-lg", {
-                    "is-invalid": emailError,
-                  })}
+    <div className="login-container">
+      <div className="row">
+        <div className="col-md-6">
+          <div className="left-container">
+            <div className="login">
+              <h1 className="title-style">Login</h1>
+              <p className="sub-title">Sign in to your DevConnector account</p>
+              <form onSubmit={onSubmit} action="dashboard.html">
+                <TextFieldGroup
                   placeholder="Email Address"
                   name="email"
+                  type="email"
+                  value={email}
                   onChange={onChangeEmail}
+                  error={emailError}
+                  className="input-style"
                 />
-                {
-                  (emailError = true && (
-                    <div className="invalid-feedback">{emailError}</div>
-                  ))
-                }
-              </div>
-              */}
+                <TextFieldGroup
+                  placeholder="Password"
+                  name="password"
+                  type="password"
+                  value={password}
+                  onChange={onChangePassword}
+                  error={passwordError}
+                  className="input-style"
+                />
 
-              <input type="submit" className="btn btn-info btn-block mt-4" />
-            </form>
+                <input type="submit" className="login-button" />
+              </form>
+            </div>
           </div>
+        </div>
+        <div className="col-md-6">
+          <div className="right-container"></div>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ import authReducer from "./authReducer";
 import errorReducer from "./errorReducer";
 import profileReducer from "./profileReducer";
 import postReducer from "./postReducer";
+import fetchUnplash from './fetchPicsReducer'
 
 //Creamos el reducer raiz (el cual debera ser importado en el store)
 //Va a contener todos los reducers que importamos anteriormente
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
   auth: authReducer,
   errors: errorReducer,
   profile: profileReducer,
-  post: postReducer
+  post: postReducer,
+  pics: fetchUnplash,
 });
 
 export default rootReducer;

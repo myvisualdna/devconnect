@@ -151,8 +151,8 @@ function AddExperience(props) {
             <Link to="/dashboard" className="btn btn-light">
               Go Back
             </Link>
-            <h1 className="display-4 text-center">Add Experience</h1>
-            <p className="lead text-center">
+            <h1 className="edit-profile-title">Add Experience</h1>
+            <p className="edit-profile-subtitle">
               Add any job or position that you have had in the past or current
             </p>
             <small className="d-block pb-3">* required fields</small>
@@ -178,7 +178,7 @@ function AddExperience(props) {
                 onChange={onChangeLocation}
                 error={locationError}
               />
-              <h6>From Date</h6>
+              <h4 className="small-label">From Date</h4>
               <TextFieldGroup
                 type="date"
                 name="from"
@@ -186,7 +186,7 @@ function AddExperience(props) {
                 onChange={onChangeFrom}
                 error={fromError}
               />
-              <h6>To Date</h6>
+              <h4 className="small-label">To Date</h4>
               <TextFieldGroup
                 type="date"
                 name="to"
@@ -219,8 +219,9 @@ function AddExperience(props) {
               />
               <input
                 type="submit"
-                value="submit"
-                className="btn btn-info btn-block mt-4"
+                value="Submit"
+                className="signup-button"
+                style={{ marginTop: "24px" }}
               />
             </form>
           </div>

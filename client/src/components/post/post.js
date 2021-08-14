@@ -9,7 +9,6 @@ import CommentForm from "./commentForm";
 import CommentFeed from "./commentFeed";
 
 function Post(props) {
-
   //Definimos los selector que vamos a necesitar
   //Definimos el post selector
   const postSelector = useSelector((state) => state.post);
@@ -42,17 +41,17 @@ function Post(props) {
     postContent = (
       <div>
         <PostItem post={postSelector.post} showActions={false} />
-        <CommentForm postId={postSelector.post._id} />
         <CommentFeed
           postId={postSelector.post._id}
           comments={postSelector.post.comments}
         />
+        <CommentForm postId={postSelector.post._id} />
       </div>
     );
   }
 
   return (
-    <div className="post">
+    <div className="post" style={{ marginTop: "32px" }}>
       <div className="container">
         <div className="row">
           <div className="col-md-12">

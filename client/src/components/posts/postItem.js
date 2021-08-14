@@ -62,15 +62,18 @@ function PostItem(props) {
 
   //Definimos la function que hace fetch de likes
   const findUserLike = (likes) => {
-      if(likes.filter(like => like.user === authSelector.user.id).length > 0) {
-          return true
-      } else {
-          return false;
-      }
-  }
+    if (likes.filter((like) => like.user === authSelector.user.id).length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   return (
-    <div className="card card-body mb-3">
+    <div
+      className="card card-body mb-3"
+      style={{ height: "125px", marginTop: "32px" }}
+    >
       <div className="row">
         <div className="col-md-2">
           <a href="profile.html">
@@ -84,38 +87,54 @@ function PostItem(props) {
           <p className="text-center">{post.name}</p>
         </div>
         <div className="col-md-10">
-          <p className="lead">{post.text}</p>
-          {showActions ? (<span>
-            <button
-            onClick={onLikeClick.bind(this, post._id)}
-            type="button"
-            className="btn btn-light mr-1"
-          >
-            <i className={classnames('fas fa-thumbs-up', {
-                'text-info' : findUserLike(post.likes)
-            })}></i>
-            <span>{post.likes.length}</span>
-          </button>
-          <button
-            onClick={onUnlikeClick.bind(this, post._id)}
-            type="button"
-            className="btn btn-light mr-1"
-          >
-            <i className="text-secondary fas fa-thumbs-down"></i>
-          </button>
-          <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
-            Comments
-          </Link>
-          {post.user === authSelector.user.id ? (
-            <button
-              onClick={onDeleteClick.bind(this, post._id)}
-              type="button"
-              className="btn btn-danger mr-1"
-            >
-              <i className="fas fa-times" />
-            </button>
+          <p className="post-text">{post.text}</p>
+          {showActions ? (
+            <span>
+              <button
+                onClick={onLikeClick.bind(this, post._id)}
+                type="button"
+                className="btn btn-light mr-1"
+                style={{ padding: "8px", marginRight: "12px" }}
+              >
+                <i
+                  className={classnames("fas fa-thumbs-up", {
+                    "text-info": findUserLike(post.likes),
+                  })}
+                ></i>
+                <span>{post.likes.length}</span>
+              </button>
+              <button
+                onClick={onUnlikeClick.bind(this, post._id)}
+                type="button"
+                className="btn btn-light mr-1"
+                style={{ padding: "8px", marginRight: "12px" }}
+              >
+                <i className="text-secondary fas fa-thumbs-down"></i>
+              </button>
+              <Link
+                to={`/post/${post._id}`}
+                className="btn btn-info mr-1"
+                style={{
+                  padding: "8px",
+                  marginRight: "12px",
+                  backgroundColor: "#22267b",
+                  color: "#fff",
+                  border: "none",
+                }}
+              >
+                Comments
+              </Link>
+              {post.user === authSelector.user.id ? (
+                <button
+                  onClick={onDeleteClick.bind(this, post._id)}
+                  type="button"
+                  className="btn btn-danger mr-1"
+                >
+                  <i className="fas fa-times" />
+                </button>
+              ) : null}
+            </span>
           ) : null}
-          </span>) : null}
         </div>
       </div>
     </div>
@@ -123,8 +142,8 @@ function PostItem(props) {
 }
 
 PostItem.defaultProps = {
-  showActions: true
-}
+  showActions: true,
+};
 
 PostItem.propTypes = {
   post: PropTypes.object.isRequired,

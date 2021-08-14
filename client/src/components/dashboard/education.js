@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Moment from "react-moment";
 import { deleteEducation } from "../../redux/actions/profileActions";
 import { useHistory } from "react-router-dom";
+import "../../styles/experienceEducation.scss";
 
 function Education(props) {
   //1. Definimos el Profile selector
@@ -37,9 +38,9 @@ function Education(props) {
     //Entonces loopeamos
     education = props.education.map((edu) => (
       <tr ket={edu._id}>
-        <td>{edu.school}</td>
-        <td>{edu.degree}</td>
-        <td>
+        <td className="table-items">{edu.school}</td>
+        <td className="table-items">{edu.degree}</td>
+        <td className="table-items">
           <Moment format="YYYY/MM/DD">{edu.from}</Moment> -
           {edu.to === null ? (
             " Now"
@@ -62,14 +63,14 @@ function Education(props) {
   }
 
   return (
-    <div>
-      <h4 className="mb-4">Education Credentials</h4>
+    <div style={{ marginTop: "48px", marginBottom: "48px" }}>
+      <h4 className="experience-title">Education Credentials</h4>
       <table className="table">
         <thead>
           <tr>
-            <th>School</th>
-            <th>Degree</th>
-            <th>Years</th>
+            <th className="header-title-style">School</th>
+            <th className="header-title-style">Degree</th>
+            <th className="header-title-style">Years</th>
             <th />
           </tr>
           {education}

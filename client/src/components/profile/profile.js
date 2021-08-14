@@ -8,11 +8,13 @@ import ProfileCreds from "./profileCreds";
 import ProfileGithub from "./profileGithub";
 import Spinner from "../common/spinner";
 import { getProfileByHandle } from "../../redux/actions/profileActions";
+import "../../styles/profile.scss";
 
 function Profile(props) {
   //ANTES QUE NADA:
   //Definimos el Profile selector
   const profileSelector = useSelector((state) => state.profile);
+
   //Definimos el Errors selector
   const errorsSelector = useSelector((state) => state.errors);
 
@@ -48,27 +50,26 @@ function Profile(props) {
   } else {
     profileContent = (
       <div>
-        <div className="row">
-          <div className="col-md-6">
-            <Link to="/profiles" className="btn btn-light mb-3 float-left">
-              Back to profiles
-            </Link>
+        <Link to="/profiles" className="btn btn-light mb-3 float-left">
+          Back to profiles
+        </Link>
+        <div className="profile-content-container">
+          <div className="col-5" style={{ padding: "8px" }}>
+            {" "}
+            <ProfileHeader profile={profileSelector.profile} />
+          </div>
+
+          <div className="col-7">
+            <ProfileCreds profile={profileSelector.profile} />
           </div>
         </div>
-        <ProfileHeader profile={profileSelector.profile} />
-        <ProfileAbout profile={profileSelector.profile} />
-        <ProfileCreds profile={profileSelector.profile} />
       </div>
     );
   }
 
   return (
-    <div className="profile">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">{profileContent}</div>
-        </div>
-      </div>
+    <div className="profile-container">
+      <div className="container">{profileContent}</div>
     </div>
   );
 }
