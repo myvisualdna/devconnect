@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a>
-    <img src="pictures/clip-social-networks.png" alt="Logo" width="120" height="120">
+    <img src="pictures/clip-social-networks.png" alt="Logo" width="150" height="150">
   </a>
 
   <h3 align="center">Dev-Social</h3>
@@ -14,7 +14,13 @@
   <p align="center">
     Developed by Andres Nieves © 2021
     <br />
+      <a align="center" href='https://serene-meadow-57535.herokuapp.com/'>
+    Visit the app here
+  </a>
 </p>
+
+
+
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -33,9 +39,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -46,11 +49,17 @@
 
 ## About The Project
 
+
+### Live Demo: [https://serene-meadow-57535.herokuapp.com/](https://serene-meadow-57535.herokuapp.com/)
+
 ![Landing](pictures/Dev-MainScreen.png)
 ![FeedScreen](pictures/FeedScreen.png)
 ![LoginScreen](pictures/LoginScreen.png)
 
-Social media platform built using MERN Stack. Features:
+
+
+
+### Social media platform built using MERN Stack. Features:
 
 - Register & Login page.
 - Profile page.
@@ -65,7 +74,7 @@ Social media platform built using MERN Stack. Features:
 
 The webapp was built using the following technologies:
 
-- [MERN STACK](https://jquery.com)
+- [MERN STACK](https://www.mongodb.com/mern-stack)
 - [React](https://reactjs.org/)
 - [Node](https://nodejs.org/)
 - [Express js](https://expressjs.com/)
@@ -125,6 +134,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 Andres Nieves - myvisualdna@gmail.com
 
 Project Link: [https://github.com/myvisualdna/devconnect](https://github.com/myvisualdna/devconnect)
+
+Live Demo: ### [https://serene-meadow-57535.herokuapp.com/](https://serene-meadow-57535.herokuapp.com/)
 
 <!-- ACKNOWLEDGEMENTS -->
 
