@@ -1,14 +1,19 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a>
+    <img src="pictures/clip-social-networks.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Dev-Social</h3>
 
   <p align="center">
     Social Media Platform build with MERN Stack
+    <br />
+</p>
+
+  <p align="center">
+    Developed by Andres Nieves © 2021
     <br />
 </p>
 
@@ -98,6 +103,7 @@ The webapp was built using the following technologies:
    ```sh
    npm install
    ```
+
 3. Open a terminal on devconnect/client folder and install NPM packages
    ```sh
    npm install
@@ -126,4 +132,3 @@ Project Link: [https://github.com/myvisualdna/devconnect](https://github.com/myv
 ## Acknowledgements
 
 Developed by Andres Nieves © 2021
-
