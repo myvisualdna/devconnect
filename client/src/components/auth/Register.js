@@ -20,7 +20,6 @@ function Register() {
     if (nameFetched) {
       SetNameState(nameFetched);
     }
-    console.log(nameState);
   };
 
   const onChangeEmail = (e) => {
@@ -28,7 +27,6 @@ function Register() {
     if (emailFetched) {
       SetEmail(emailFetched);
     }
-    console.log(email);
   };
 
   const onChangePassword = (e) => {
@@ -36,7 +34,6 @@ function Register() {
     if (passwordFetched) {
       SetPassword(passwordFetched);
     }
-    console.log(password);
   };
 
   const onChangePasswordTwo = (e) => {
@@ -44,7 +41,6 @@ function Register() {
     if (passwordTwoFetched) {
       SetPasswordTwo(passwordTwoFetched);
     }
-    console.log(passwordTwo);
   };
 
   //Redux Register Action
@@ -70,7 +66,6 @@ function Register() {
       password: password,
       passwordTwo: passwordTwo,
     };
-    console.log(newUser);
     registerUserMethod(newUser, history);
   };
 
@@ -86,25 +81,21 @@ function Register() {
   let nameError = undefined;
   if (errorsSelector.errors) {
     nameError = errorsSelector.errors.name;
-    console.log(nameError);
   }
 
   let emailError = undefined;
   if (errorsSelector.errors) {
     emailError = errorsSelector.errors.email;
-    console.log(emailError);
   }
 
   let passwordError = undefined;
   if (errorsSelector.errors) {
     passwordError = errorsSelector.errors.password;
-    console.log(passwordError);
   }
 
   let passwordTwoError = undefined;
   if (errorsSelector.errors) {
     passwordTwoError = errorsSelector.errors.passwordTwo;
-    console.log(passwordTwoError);
   }
 
   //////USE EFFECT VERIFICATION

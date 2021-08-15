@@ -17,7 +17,6 @@ function Login() {
     if (emailFetched) {
       SetEmail(emailFetched);
     }
-    console.log(email);
   };
 
   //3. Creamos el evento que se ejecuta al cambiar el input de passwprd: al dispararse este evento guardara en el state "password" lo introducido en el input email
@@ -26,7 +25,6 @@ function Login() {
     if (passwordFetched) {
       SetPassword(passwordFetched);
     }
-    console.log(password);
   };
 
   //Redux Login Process
@@ -50,7 +48,6 @@ function Login() {
       email: email,
       password: password,
     };
-    console.log(loggedUser);
     loginUserMethod(loggedUser, history);
   };
 
@@ -63,13 +60,11 @@ function Login() {
   let emailError = undefined;
   if (errorsSelector.errors) {
     emailError = errorsSelector.errors.email;
-    console.log(emailError);
   }
 
   let passwordError = undefined;
   if (errorsSelector.errors) {
     passwordError = errorsSelector.errors.password;
-    console.log(passwordError);
   }
 
   //////USE EFFECT VERIFICATION
