@@ -2,14 +2,13 @@
 <br />
 <p align="center">
   <a>
-    <img src="pictures/clip-social-networks.png" alt="Logo" width="80" height="80">
+    <img src="pictures/clip-social-networks.png" alt="Logo" width="120" height="120">
   </a>
 
   <h3 align="center">Dev-Social</h3>
 
   <p align="center">
     Social Media Platform build with MERN Stack
-    <br />
 </p>
 
   <p align="center">
