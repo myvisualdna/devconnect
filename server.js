@@ -2,8 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const path = require("path");
 require("dotenv").config();
 const app = express();
+
 
 //Body parser middleware
 //(Nos permite acceder req.body.loquesea)
@@ -33,6 +35,18 @@ app.use("/api/users", users);
 app.use("/api/profile", profile);
 app.use("/api/posts", posts);
 
-const port = process.env.PORT || 5000;
+////////HEROKU////////////
+//Configuracion para el modo produccion (para que Heroku lance la app)
+//Serve static assets if in production
+if(process.env.NODE_ENV === "production") {
+  // Aqui se especifica los archivos estaticos que debe servir
+  app.use(express.static(path.join(__dirname, "client/build")));
 
+  // Handle React routing, return all requests to React app
+  app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  });
+}
+
+const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
